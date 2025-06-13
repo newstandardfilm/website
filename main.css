@@ -1,0 +1,21 @@
+body{
+    background-color: #e5e5e5;
+}
+
+.construction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    font-family: "League Spartan", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: 30%;
+}
