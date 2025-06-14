@@ -69,52 +69,20 @@ img{
     height: 40px;
 }
 
-.INS{
-    font-family: "League Spartan", sans-serif;
-    color: #e5e5e5;
-    text-decoration: none;
+.fsocial{
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 40px;
+    gap: 20px;
+    height: 100%;
 }
 
-.YT{
-    font-family: "League Spartan", sans-serif;
+.fsociali{
     color: #e5e5e5;
-    text-decoration: none;
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-}
-
-.TK{
-    font-family: "League Spartan", sans-serif;
-    color: #e5e5e5;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-}
-
-.X{
-    font-family: "League Spartan", sans-serif;
-    color: #e5e5e5;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 40px;
+    height: 100%;
 }
 
 .IT{
