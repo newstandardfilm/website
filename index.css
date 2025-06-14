@@ -31,6 +31,7 @@ img{
 .ffunc{
     float: left;
     width: 33.33%;
+    margin-bottom: 50px;
 }
 
 .FAQ{
@@ -73,7 +74,7 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     height: 100%;
 }
 
@@ -84,6 +85,14 @@ img{
 
 .fsociali:hover {
     fill: #e48f11;
+}
+
+.followus {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #e5e5e5;
+    text-align: center;
 }
 
 .IT{
@@ -132,4 +141,11 @@ img{
     display: flex;
     flex-direction: column;
     height: 40px;
+}
+
+.copyright{
+    font-family: "League Spartan", sans-serif;
+    color: #e5e5e5;
+    text-align: center;
+    margin-bottom: 38px;
 }
