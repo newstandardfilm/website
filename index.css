@@ -1,5 +1,28 @@
 body{
     background-color: #050505;
+    padding: 10px 20px;
+}
+
+.nrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.nlogo{
+    padding-bottom: 30px;
+}
+
+.nfunc{
+    display: flex;
+    gap: 20px;
+}
+
+/*Nav*/
+.nav{
+    background-color: #FFFFFF;
 }
 
 .construction{
