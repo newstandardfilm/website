@@ -7,18 +7,29 @@ body{
 /*Nav*/
 .nav{
     background: transparent;
+    position: relative;
+    top: 0;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .nrow {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px;
+    margin: 30px;
 }
 
 .nlogo{
-    display: flex;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
     align-items: center;
+}
+
+.nlogo img {
+    width: 10%;
 }
 
 .nfunc{
@@ -32,12 +43,14 @@ body{
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
     font-size: 20px;
-    margin-right: 30px;
+    background-color: #f82322;
+    padding: 13px;
 }
 
 .nlink:hover {
     transition-duration: 0.3s;
     color: #e48f11;
+    background-color: #e5e5e5;
 }
 
 .construction{
@@ -54,7 +67,7 @@ body{
     flex-direction: column;
 }
 
-img{
+.construction img {
     width: 10%;
     padding-top: 50px;
 }
