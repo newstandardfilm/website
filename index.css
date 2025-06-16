@@ -22,14 +22,11 @@ body{
 
 .nlogo{
     display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
     align-items: center;
 }
 
 .nlogo img {
-    width: 10%;
+    width: 112px;
 }
 
 .nfunc{
