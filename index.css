@@ -8,9 +8,6 @@ body{
 .nav{
     background: transparent;
     position: relative;
-    top: 0;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
 }
 
 .nrow {
@@ -27,6 +24,7 @@ body{
 
 .nlogo img {
     width: 112px;
+    height: auto;
 }
 
 .nfunc{
@@ -199,6 +197,26 @@ body{
 }
 
 @media (max-width: 768px) {
+    .nrow {
+    margin: 10px;
+    }
+
+    .nlogo img {
+    width: 82px;
+    height: auto;
+    margin-bottom: 27px;
+    }
+
+    .nfunc{
+    display: flex;
+    gap: 15px;
+    }
+
+    .nlink {
+    font-size: 15px;
+    padding: 10px;
+    }
+
     .ffunc {
         float: none;
         width: 100%;
