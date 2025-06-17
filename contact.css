@@ -55,23 +55,21 @@ body{
     background-color: #e5e5e5;
 }
 
-.construction{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 80vh;
+/*site*/
+.hero{
     font-family: "League Spartan", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: #e5e5e5;
-    display: flex;
-    flex-direction: column;
+    font-weight: 900;
+    text-align: center;
+    font-size: 60px;
+    line-height: 10px;
 }
 
-.construction img {
-    width: 10%;
-    padding-top: 50px;
+.filmmaking {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    font-size: 125px;
+    line-height: 0px;
 }
 
 /*Footer*/
@@ -204,6 +202,7 @@ body{
 }
 
 @media (max-width: 768px) {
+    /*navbar*/
     .nrow {
     margin: 10px;
     }
@@ -214,6 +213,7 @@ body{
     margin-bottom: 27px;
     }
 
+    /*footer*/
     .nfunc{
     display: flex;
     gap: 15px;
