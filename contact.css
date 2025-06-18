@@ -102,6 +102,90 @@ body{
     text-align: center;
     background-color: #111197;
     height: 40px;
+    padding-top: 10px;
+}
+
+.wbanner p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.contactusyeh{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-align-last: left;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.contactusyeh p{
+    font-size: 30px;
+    padding: 20px 10px 10px 20px;
+}
+
+.contactusyeh h1{
+    font-size: 40px;
+    padding-bottom: 50px;
+
+}
+
+.contactusyeh button{
+    padding: 10px;
+    background-color: #f82322;
+    color: #e5e5e5;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+}
+
+.contactusyeh h3{
+    padding-top: 50px;
+    font-size: 24px;
+}
+
+.bsociali {
+    fill: #e5e5e5;
+    transition: fill 0.3s ease;
+    margin-right: 100px;
+}
+
+.bsociali:hover {
+    fill: #e48f11;
+}
+
+.blink {
+    text-decoration: none;
+    color: #e5e5e5;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #f82322;
+    padding: 13px;
+    margin-left: 207px;
+}
+
+.blink:hover {
+    transition-duration: 0.3s;
+    color: #e48f11;
+    background-color: #e5e5e5;
+}
+
+.bblink {
+    text-decoration: none;
+    color: #e5e5e5;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #f82322;
+    padding: 13px;
+    margin-left: 100px;
+}
+
+.bblink:hover {
+    transition-duration: 0.3s;
+    color: #e48f11;
+    background-color: #e5e5e5;
 }
 
 /*Footer*/
