@@ -70,6 +70,7 @@ body{
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    opacity: 30%;
 }
 
 .hero{
@@ -90,6 +91,19 @@ body{
     line-height: 0px;
 }
 
+.xclam{
+    width: 20px;
+    height: 20px;
+    fill: #f82322;
+}
+
+.wbanner{
+    position: relative;
+    text-align: center;
+    background-color: #111197;
+    height: 40px;
+}
+
 /*Footer*/
 .frow:after {
   content: "";
@@ -101,6 +115,7 @@ body{
     float: left;
     width: 33.33%;
     margin-bottom: 50px;
+    margin-top: 20px;
 }
 
 .FAQ{
