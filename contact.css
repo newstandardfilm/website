@@ -15,13 +15,14 @@ body{
 .nav{
     background: transparent;
     position: relative;
+    z-index: 1;
 }
 
 .nrow {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 30px;
+    padding: 30px;
 }
 
 .nlogo{
@@ -56,12 +57,29 @@ body{
 }
 
 /*site*/
+.herosec{
+    position: relative;
+    min-height: 500px;
+}
+
+#contactustemp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
 .hero{
     font-family: "League Spartan", sans-serif;
     font-weight: 900;
     text-align: center;
     font-size: 60px;
     line-height: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .filmmaking {
@@ -204,13 +222,21 @@ body{
 @media (max-width: 768px) {
     /*navbar*/
     .nrow {
-    margin: 10px;
+    padding: 10px;
     }
 
     .nlogo img {
     width: 82px;
     height: auto;
     margin-bottom: 27px;
+    }
+
+    .hero{
+    font-size: 25px;
+    }
+
+    .filmmaking {
+    font-size: 55px;
     }
 
     /*footer*/
