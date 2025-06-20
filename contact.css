@@ -128,19 +128,19 @@ body{
 .contactusyeh h1{
     font-size: 40px;
     padding-bottom: 50px;
-}
-
-.contactusyeh button{
-    padding: 10px;
-    background-color: #f82322;
-    color: #e5e5e5;
-    font-family: "League Spartan", sans-serif;
-    font-weight: 700;
+    padding-left: 200px;
+    padding-right: 200px;
+    text-align: left;
 }
 
 .contactusyeh h3{
     padding-top: 50px;
     font-size: 24px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 70px;
+    text-align: left;
+
 }
 
 .bsociali {
