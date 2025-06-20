@@ -128,7 +128,6 @@ body{
 .contactusyeh h1{
     font-size: 40px;
     padding-bottom: 50px;
-
 }
 
 .contactusyeh button{
@@ -195,7 +194,7 @@ body{
   clear: both;
 }
 
-.ffunc{
+.ffunc{ 
     float: left;
     width: 33.33%;
     margin-bottom: 50px;
@@ -329,13 +328,59 @@ body{
     height: auto;
     margin-bottom: 27px;
     }
+    
+    .herosec{
+        position: relative;
+        min-height: 400px;
+    }
 
     .hero{
-    font-size: 25px;
+        font-size: 25px;
     }
 
     .filmmaking {
-    font-size: 55px;
+        font-size: 55px;
+        padding-top: 40px;
+    }
+
+    .wbanner{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .contactusyeh p{
+        font-size: 15px;
+        padding: 20px 10px 10px 20px;
+    }
+
+    .contactusyeh h1{
+        font-size: 30px;
+        padding-bottom: 50px;
+        padding-left: 35px;
+        padding-right: 35px;
+        text-align: left;
+    }
+
+    .contactusyeh h3{
+        padding-top: 50px;
+        font-size: 16px;
+        padding-left: 35px;
+        padding-right: 35px;
+        text-align: left;
+    }
+
+    .bsociali {
+        margin-right: 25px;
+    }
+
+    .blink {
+        padding: 10px;
+        margin-left: 68px;
+    }
+
+    .bblink {
+        padding: 10px;
+        margin-left: 15px;
     }
 
     /*footer*/
