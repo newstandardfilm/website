@@ -1,24 +1,190 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: #050505;
+    font-family: "League Spartan", sans-serif;
+    color: #e5e5e5;
+    margin: 0;
+    padding: 0;
 }
 
-.construction{
+/*Nav*/
+.nav{
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.nrow {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    min-height: 80vh;
-    font-family: "League Spartan", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
+    padding: 30px;
+}
+
+.nlogo{
+    display: block;
+    align-items: center;
+}
+
+.nlogo img {
+    width: 112px;
+    height: auto;
+}
+
+.nfunc{
+    display: flex;
+    gap: 20px;
+}
+
+.nlink {
+    text-decoration: none;
     color: #e5e5e5;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #f82322;
+    padding: 13px;
+}
+
+.nlink:hover {
+    transition-duration: 0.3s;
+    color: #e48f11;
+    background-color: #e5e5e5;
+}
+
+/*site*/
+.herosec{
+    position: relative;
+    min-height: 500px;
+}
+
+#contactustemp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 30%;
+}
+
+.hero{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    font-size: 60px;
+    line-height: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.filmmaking {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    font-size: 125px;
+    line-height: 0px;
+}
+
+.xclam{
+    width: 20px;
+    height: 20px;
+    fill: #f82322;
+}
+
+.wbanner{
+    position: relative;
+    text-align: center;
+    background-color: #111197;
+    height: 40px;
+    padding-top: 10px;
+}
+
+.wbanner p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.contactusyeh{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-align-last: left;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
-img{
-    width: 10%;
+.contactusyeh p{
+    font-size: 30px;
+    padding: 20px 10px 10px 20px;
+}
+
+.contactusyeh h1{
+    font-size: 40px;
+    padding-bottom: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    text-align: left;
+}
+
+.contactusyeh h3{
     padding-top: 50px;
+    font-size: 24px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 70px;
+    text-align: left;
+
+}
+
+.bsociali {
+    fill: #e5e5e5;
+    transition: fill 0.3s ease;
+    margin-right: 100px;
+}
+
+.bsociali:hover {
+    fill: #e48f11;
+}
+
+.blink {
+    text-decoration: none;
+    color: #e5e5e5;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #f82322;
+    padding: 13px;
+    margin-left: 207px;
+}
+
+.blink:hover {
+    transition-duration: 0.3s;
+    color: #e48f11;
+    background-color: #e5e5e5;
+}
+
+.bblink {
+    text-decoration: none;
+    color: #e5e5e5;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #f82322;
+    padding: 13px;
+    margin-left: 100px;
+}
+
+.bblink:hover {
+    transition-duration: 0.3s;
+    color: #e48f11;
+    background-color: #e5e5e5;
 }
 
 /*Footer*/
@@ -28,10 +194,11 @@ img{
   clear: both;
 }
 
-.ffunc{
+.ffunc{ 
     float: left;
     width: 33.33%;
     margin-bottom: 50px;
+    margin-top: 20px;
 }
 
 .FAQ{
@@ -148,4 +315,93 @@ img{
     color: #e5e5e5;
     text-align: center;
     margin-bottom: 38px;
+}
+
+@media (max-width: 768px) {
+    /*navbar*/
+    .nrow {
+    padding: 10px;
+    }
+
+    .nlogo img {
+    width: 82px;
+    height: auto;
+    margin-bottom: 27px;
+    }
+    
+    .herosec{
+        position: relative;
+        min-height: 400px;
+    }
+
+    .hero{
+        font-size: 25px;
+    }
+
+    .filmmaking {
+        font-size: 55px;
+        padding-top: 40px;
+    }
+
+    .wbanner{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .contactusyeh p{
+        font-size: 15px;
+        padding: 20px 10px 10px 20px;
+    }
+
+    .contactusyeh h1{
+        font-size: 30px;
+        padding-bottom: 50px;
+        padding-left: 35px;
+        padding-right: 35px;
+        text-align: left;
+    }
+
+    .contactusyeh h3{
+        padding-top: 50px;
+        font-size: 16px;
+        padding-left: 35px;
+        padding-right: 35px;
+        text-align: left;
+    }
+
+    .bsociali {
+        margin-right: 25px;
+    }
+
+    .blink {
+        padding: 10px;
+        margin-left: 68px;
+    }
+
+    .bblink {
+        padding: 10px;
+        margin-left: 15px;
+    }
+
+    /*footer*/
+    .nfunc{
+    display: flex;
+    gap: 15px;
+    }
+
+    .nlink {
+    font-size: 15px;
+    padding: 10px;
+    }
+
+    .ffunc {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .Logo {
+        width: 25%;
+        padding-top: 30px;
+    }
 }
