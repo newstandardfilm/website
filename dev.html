@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev Roadmap — Web & Mobile</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f2ec;
+  --ink: #1a1710;
+  --muted: #9a9082;
+  --border: #ddd8cf;
+  --surface: #fff;
+  --p1: #2d5a3d;   /* forest — JS */
+  --p2: #1a3a6e;   /* navy — DOM + APIs */
+  --p3: #7a2a1a;   /* terracotta — React */
+  --p4: #3d2a6e;   /* deep violet — Back-end */
+  --p5: #1a5a5a;   /* teal — Mobile */
+  --done-bg: #e8e4dc;
+  --done-text: #b0a898;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Fraunces', Georgia, serif;
+  min-height: 100vh;
+  padding: 3rem 1.2rem 4rem;
+}
+
+/* ── HEADER ── */
+header {
+  max-width: 720px;
+  margin: 0 auto 2.8rem;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 1.8rem;
+}
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .8rem;
+}
+header h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -.03em;
+  font-style: italic;
+}
+header h1 em { font-style: normal; color: var(--muted); }
+.header-sub {
+  margin-top: 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 500px;
+}
+.header-sub strong { color: var(--ink); }
+
+/* ── HONEST DISCLAIMER ── */
+.disclaimer {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 10px;
+  padding: 1.1rem 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .73rem;
+  line-height: 1.7;
+}
+.disclaimer strong { color: #f5c842; }
+
+/* ── PROGRESS ── */
+.progress-wrap {
+  max-width: 720px;
+  margin: 0 auto 2.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.bar-track {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--ink);
+  border-radius: 99px;
+  transition: width .5s ease;
+  width: 0%;
+}
+.prog-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── PHASE ── */
+main { max-width: 720px; margin: 0 auto; }
+
+.phase { margin-bottom: 1.6rem; }
+
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .9rem 0;
+  cursor: pointer;
+  border-top: 1.5px solid var(--border);
+  user-select: none;
+  transition: border-color .15s;
+}
+.phase-header:hover { border-color: var(--ink); }
+.phase.open .phase-header { border-color: var(--ink); }
+
+.phase-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .22rem .6rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.phase-name { font-size: 1.05rem; font-weight: 600; flex: 1; }
+.phase-dur {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  color: var(--muted);
+}
+.phase-arrow { font-size: .7rem; color: var(--muted); transition: transform .2s; flex-shrink: 0; }
+.phase.open .phase-arrow { transform: rotate(90deg); }
+
+.phase-body { display: none; padding-bottom: .4rem; }
+.phase.open .phase-body { display: block; }
+
+.phase-intro {
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  color: var(--muted);
+  line-height: 1.7;
+  padding: .6rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .5rem;
+}
+.phase-intro strong { color: var(--ink); }
+
+/* ── UNIT ── */
+.unit {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: .7rem;
+  padding: .75rem 0;
+  border-bottom: 1px dashed var(--border);
+  cursor: pointer;
+  transition: background .1s;
+  border-radius: 6px;
+  padding-left: .3rem;
+  padding-right: .3rem;
+}
+.unit:last-child { border-bottom: none; }
+.unit:hover { background: rgba(0,0,0,.03); }
+.unit.done { opacity: .4; }
+
+.unit-check {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .15s;
+}
+.unit.done .unit-check { background: var(--ink); border-color: var(--ink); }
+.unit.done .unit-check::after { content: '✓'; font-size: .6rem; color: var(--bg); font-family: 'DM Mono', monospace; }
+
+.unit-body {}
+.unit-head {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: .25rem;
+}
+.unit-num {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem;
+  color: var(--muted);
+}
+.unit-title { font-size: .9rem; font-weight: 600; }
+.unit.done .unit-title { text-decoration: line-through; color: var(--done-text); }
+
+.unit-tags {
+  display: flex; flex-wrap: wrap; gap: .3rem;
+  margin-bottom: .3rem;
+}
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem;
+  padding: .15rem .45rem;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.unit-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.unit-resource {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem;
+  color: var(--muted);
+  margin-top: .3rem;
+}
+.unit-resource a { color: inherit; }
+
+.badge {
+  font-family: 'DM Mono', monospace;
+  font-size: .58rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: .18rem .4rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  align-self: start;
+  margin-top: 3px;
+}
+.badge.build { border-color: currentColor; }
+
+/* phase colours */
+.p1 { --pc: var(--p1); }
+.p2 { --pc: var(--p2); }
+.p3 { --pc: var(--p3); }
+.p4 { --pc: var(--p4); }
+.p5 { --pc: var(--p5); }
+
+.phase-tag { background: color-mix(in srgb, var(--pc) 10%, transparent); color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 25%, transparent); }
+.tag { background: color-mix(in srgb, var(--pc) 10%, transparent); color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 20%, transparent); }
+.badge.build { color: var(--pc); border-color: color-mix(in srgb, var(--pc) 40%, transparent); }
+
+/* ── RESOURCES BOX ── */
+.resources {
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 1.4rem;
+}
+.resources h3 {
+  font-size: .6rem;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .8rem;
+}
+.res-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  background: var(--surface);
+}
+.res-name { font-size: .85rem; font-weight: 600; margin-bottom: .25rem; }
+.res-desc { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--muted); line-height: 1.5; }
+.res-url { font-family: 'DM Mono', monospace; font-size: .6rem; color: var(--muted); margin-top: .35rem; }
+.res-url a { color: inherit; }
+
+footer {
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  color: var(--muted);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Web + Mobile · AI-free · 1–2 hrs / week</p>
+  <h1>Software<br>Dev <em>Roadmap</em></h1>
+  <p class="header-sub">
+    <strong>5 phases. ~18 months.</strong><br>
+    From your current HTML/CSS base to shipping real web apps and mobile apps — without touching AI to write code.
+  </p>
+</header>
+
+<div class="disclaimer">
+  <strong>// Honest estimate.</strong> At 1–2h/week this is an 18-month journey, not 3. Anyone who tells you otherwise is selling something. The good news: you already have HTML/CSS, which means Phase 1 is pure logic — no syntax surprises. Each phase ends with a project you build from zero. That project <em>is</em> the learning.
+</div>
+
+<div class="progress-wrap">
+  <div class="bar-track"><div class="bar-fill" id="bar"></div></div>
+  <div class="prog-label" id="prog-label">0 / 25 units</div>
+</div>
+
+<main id="main"></main>
+
+<div class="resources">
+  <h3>// Core resources — all free, all AI-free</h3>
+  <div class="res-grid">
+    <div class="res-card">
+      <div class="res-name">javascript.info</div>
+      <div class="res-desc">The single best free JS resource. Reads like a textbook. Covers everything from primitives to async.</div>
+      <div class="res-url"><a href="https://javascript.info" target="_blank">javascript.info ↗</a></div>
+    </div>
+    <div class="res-card">
+      <div class="res-name">The Odin Project</div>
+      <div class="res-desc">Project-based curriculum. Forces you to build, not just read. Use for DOM + React phases.</div>
+      <div class="res-url"><a href="https://www.theodinproject.com" target="_blank">theodinproject.com ↗</a></div>
+    </div>
+    <div class="res-card">
+      <div class="res-name">MDN Web Docs</div>
+      <div class="res-desc">Your permanent reference. When a function or API confuses you, MDN is the answer. Bookmark it forever.</div>
+      <div class="res-url"><a href="https://developer.mozilla.org" target="_blank">developer.mozilla.org ↗</a></div>
+    </div>
+    <div class="res-card">
+      <div class="res-name">Eloquent JavaScript</div>
+      <div class="res-desc">Free book online. More rigorous than js.info. Read alongside Phase 1–2 for depth.</div>
+      <div class="res-url"><a href="https://eloquentjavascript.net" target="_blank">eloquentjavascript.net ↗</a></div>
+    </div>
+    <div class="res-card">
+      <div class="res-name">React Docs</div>
+      <div class="res-desc">The official React docs are genuinely excellent. Use the new beta docs (react.dev) — they're tutorial-first.</div>
+      <div class="res-url"><a href="https://react.dev" target="_blank">react.dev ↗</a></div>
+    </div>
+    <div class="res-card">
+      <div class="res-name">Expo Docs</div>
+      <div class="res-desc">React Native via Expo is the fastest path to mobile. Official docs + snack playground for testing.</div>
+      <div class="res-url"><a href="https://docs.expo.dev" target="_blank">docs.expo.dev ↗</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>// tap a unit to mark it done · state resets on refresh</footer>
+
+<script>
+const data = [
+  {
+    id: "p1", cls: "p1",
+    label: "Phase 1", name: "JavaScript Fundamentals",
+    duration: "~5 months", period: "May – Sep",
+    intro: "JS is the only language where <strong>one language covers front-end, back-end, and mobile</strong>. Master this and everything else accelerates. Your HTML/CSS knowledge means you skip the 'what is a webpage' section — jump straight to logic. Primary resource: <strong>javascript.info</strong> chapters 1–9.",
+    units: [
+      { title: "Variables, Types & Operators", tags: ["let/const", "types", "operators"], desc: "Understand var vs let vs const. Primitive types: string, number, boolean, null, undefined. Arithmetic and comparison operators. Type coercion gotchas.", resource: "javascript.info — chapters 2.1–2.9", badge: null },
+      { title: "Functions & Scope", tags: ["functions", "scope", "hoisting"], desc: "Function declarations vs expressions vs arrow functions. Scope chain, closures. Hoisting. This is where most beginners get confused — take your time.", resource: "javascript.info — chapters 2.15, 6.1–6.4", badge: null },
+      { title: "Arrays & Objects", tags: ["arrays", "objects", "methods"], desc: "Arrays: map, filter, reduce, forEach, find. Objects: properties, methods, destructuring, spread operator. JSON. These 5 array methods will be 80% of your data work.", resource: "javascript.info — chapters 5.1–5.9", badge: null },
+      { title: "Control Flow & Error Handling", tags: ["if/else", "loops", "try/catch"], desc: "if/else, switch, for, while, for...of, for...in. try/catch/finally. Custom errors. Structured thinking before you touch the browser.", resource: "javascript.info — chapters 2.10–2.14, 10.1–10.2", badge: null },
+      { title: "🏗 Build: CLI Logic Scripts", tags: ["project"], desc: "Write 5 pure JS functions without a browser: FizzBuzz, palindrome checker, array flattener, simple calculator, grade average. Run them in Node.js. Zero UI — just logic.", resource: "Node.js to run scripts locally", badge: "build" },
+    ]
+  },
+  {
+    id: "p2", cls: "p2",
+    label: "Phase 2", name: "DOM + Real Web Interactivity",
+    duration: "~3 months", period: "Oct – Dec",
+    intro: "This is where your HTML/CSS background finally pays off. The DOM is just a JS API to manipulate the HTML you already know. By the end of this phase you can build any interactive webpage — forms, animations, data fetching — <strong>without a framework</strong>. That independence is exactly what you want.",
+    units: [
+      { title: "DOM Selection & Manipulation", tags: ["querySelector", "innerHTML", "classList"], desc: "Select elements, change text, add/remove classes, create and delete nodes. Build a todo list from scratch using only vanilla JS and your existing CSS skills.", resource: "javascript.info — chapters 1.1–1.7 (browser)", badge: null },
+      { title: "Events", tags: ["addEventListener", "event object", "delegation"], desc: "Click, input, submit, keyboard events. Event bubbling and delegation — critical for dynamic lists. The event object. Preventing default behaviour.", resource: "javascript.info — chapter 2 (browser)", badge: null },
+      { title: "Async JS: Promises & fetch", tags: ["promises", "async/await", "fetch"], desc: "How async code works. Promises. async/await syntax. fetch() to call real APIs. Parse JSON responses. Handle errors. This unlocks every real-world web app.", resource: "javascript.info — chapters 11.1–11.8", badge: null },
+      { title: "🏗 Build: Weather App", tags: ["project"], desc: "Fetch real weather data from a free API (Open-Meteo — no key needed). Display it using your own HTML/CSS. Search by city. Handle loading and error states. No framework.", resource: "open-meteo.com (free, no API key)", badge: "build" },
+    ]
+  },
+  {
+    id: "p3", cls: "p3",
+    label: "Phase 3", name: "React — Component Thinking",
+    duration: "~4 months", period: "Jan – Apr (Yr 2)",
+    intro: "React is the industry standard for web UIs and the foundation for React Native (mobile). The mental shift is from <em>'manipulate the DOM directly'</em> to <em>'describe what the UI should look like given this data'</em>. It's a different way of thinking — give it time. Use <strong>react.dev</strong> official docs exclusively.",
+    units: [
+      { title: "Components, JSX & Props", tags: ["JSX", "components", "props"], desc: "What a component is. Writing JSX. Passing data down via props. Why React's model is cleaner than manual DOM manipulation for complex UIs.", resource: "react.dev — Describing the UI", badge: null },
+      { title: "State & useState", tags: ["useState", "state", "re-render"], desc: "The useState hook. How state triggers re-renders. Controlled inputs. The difference between state and props. Build a counter, then a form.", resource: "react.dev — Adding Interactivity", badge: null },
+      { title: "useEffect & Data Fetching", tags: ["useEffect", "fetch", "lifecycle"], desc: "Side effects in React. useEffect for data fetching. Dependency array. Cleanup. Re-build your weather app from Phase 2 in React — see the difference.", resource: "react.dev — Escape Hatches", badge: null },
+      { title: "React Router & Multi-page Apps", tags: ["routing", "navigation", "SPA"], desc: "Client-side routing with React Router. Nested routes, params, navigation. Turn a single page into a real multi-page app.", resource: "reactrouter.com docs", badge: null },
+      { title: "🏗 Build: NSF Portfolio Site", tags: ["project"], desc: "Re-build your film studio site in React. Pages: Home, Work, About, Contact. Use real data. This is your first deployable React project — deploy it on Vercel for free.", resource: "vercel.com for deployment", badge: "build" },
+    ]
+  },
+  {
+    id: "p4", cls: "p4",
+    label: "Phase 4", name: "Back-end Basics",
+    duration: "~3 months", period: "May – Jul (Yr 2)",
+    intro: "You don't need to become a back-end engineer — but understanding how servers and databases work makes you a vastly more capable builder. Node.js means you write the same JS you already know. This phase is intentionally slim: <strong>just enough to build a working API</strong> that your front-end can talk to.",
+    units: [
+      { title: "Node.js & npm fundamentals", tags: ["Node", "npm", "modules"], desc: "How Node runs JS outside the browser. npm packages. CommonJS vs ES modules. File system, path, environment variables. You already write JS — this is just a new context.", resource: "nodejs.org official docs", badge: null },
+      { title: "Express — REST APIs", tags: ["Express", "REST", "routes"], desc: "Build a simple HTTP server. GET/POST/PUT/DELETE routes. Middleware. JSON responses. This is all a back-end is at its core: receive a request, do something, send a response.", resource: "expressjs.com docs", badge: null },
+      { title: "Databases: SQLite + basic SQL", tags: ["SQL", "SQLite", "queries"], desc: "Tables, rows, columns. SELECT, INSERT, UPDATE, DELETE. JOINs. Use SQLite (no setup needed) with the better-sqlite3 package. Store and retrieve real data.", resource: "sqlite.org + better-sqlite3 on npm", badge: null },
+      { title: "🏗 Build: Personal Link Tracker", tags: ["project"], desc: "A back-end only app: POST a URL + note to save it, GET all saved links, DELETE by ID. SQLite for storage, Express for the API. Test with a REST client like Hoppscotch.", resource: "hoppscotch.io (free API tester)", badge: "build" },
+    ]
+  },
+  {
+    id: "p5", cls: "p5",
+    label: "Phase 5", name: "Mobile with React Native",
+    duration: "~3 months", period: "Aug – Oct (Yr 2)",
+    intro: "Because you know React, <strong>React Native will feel familiar within days</strong>. The big difference: instead of div/span/p you use View/Text/TouchableOpacity, and styling is a JS object (not CSS files). Expo abstracts away all the native tooling so you can focus on building. By end of phase: a real app on your own iPhone.",
+    units: [
+      { title: "Expo Setup & RN Components", tags: ["Expo", "View", "Text", "StyleSheet"], desc: "Install Expo Go on your phone. Create a project. Understand View, Text, Image, ScrollView, TouchableOpacity. StyleSheet API vs CSS — the differences and similarities.", resource: "docs.expo.dev — Get Started", badge: null },
+      { title: "Navigation", tags: ["React Navigation", "stack", "tabs"], desc: "React Navigation library. Stack navigator, tab navigator. Passing params between screens. This mirrors React Router from Phase 3 — the concepts transfer.", resource: "reactnavigation.org docs", badge: null },
+      { title: "Device APIs & Async Storage", tags: ["AsyncStorage", "camera", "location"], desc: "Persist data with AsyncStorage. Access device features: camera, location, notifications. Expo's managed workflow makes these one-import operations.", resource: "docs.expo.dev — SDK reference", badge: null },
+      { title: "🏗 Build: NSF Field Notes App", tags: ["project"], desc: "A mobile companion for shoots. Add a location, date, shot notes and a photo per session. Stores locally with AsyncStorage. Build it for yourself — you'll actually use it.", resource: "Expo + React Navigation + AsyncStorage", badge: "build" },
+    ]
+  },
+];
+
+// ── Build DOM
+const main = document.getElementById("main");
+const state = {};
+let totalUnits = 0;
+
+data.forEach(ph => {
+  ph.units.forEach((_, i) => {
+    state[`${ph.id}-${i}`] = false;
+    totalUnits++;
+  });
+
+  const section = document.createElement("section");
+  section.className = `phase ${ph.cls}`;
+  section.innerHTML = `
+    <div class="phase-header" onclick="toggle(this.parentElement)">
+      <span class="phase-tag">${ph.label}</span>
+      <span class="phase-name">${ph.name}</span>
+      <span class="phase-dur">${ph.duration} · ${ph.period}</span>
+      <span class="phase-arrow">▶</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-intro">${ph.intro}</div>
+      ${ph.units.map((u, i) => `
+        <div class="unit" data-key="${ph.id}-${i}" onclick="toggleUnit(this)">
+          <div class="unit-check"></div>
+          <div class="unit-body">
+            <div class="unit-head">
+              <span class="unit-num">U${String(i+1).padStart(2,'0')}</span>
+              <span class="unit-title">${u.title}</span>
+            </div>
+            <div class="unit-tags">${u.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            <div class="unit-desc">${u.desc}</div>
+            <div class="unit-resource">// ${u.resource}</div>
+          </div>
+          <div class="badge${u.badge === 'build' ? ' build' : ''}">${u.badge === 'build' ? '⚙ build' : '1–2 wks'}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  main.appendChild(section);
+});
+
+// open first phase
+main.querySelector(".phase").classList.add("open");
+
+function toggle(el) { el.classList.toggle("open"); }
+
+function toggleUnit(el) {
+  const key = el.dataset.key;
+  state[key] = !state[key];
+  el.classList.toggle("done", state[key]);
+  const done = Object.values(state).filter(Boolean).length;
+  document.getElementById("prog-label").textContent = `${done} / ${totalUnits} units`;
+  document.getElementById("bar").style.width = `${(done / totalUnits) * 100}%`;
+}
+</script>
+</body>
+</html>
